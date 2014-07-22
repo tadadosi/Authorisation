@@ -1,10 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-  end
-  def login
-  end
-  def logout
-  end
-  def signup
+    if user_signed_in?
+      redirect_to :controller=>'dashboard', :action => 'index'
+    end
   end
 end

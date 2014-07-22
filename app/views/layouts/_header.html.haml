@@ -7,8 +7,14 @@
       %nav
         %ul.nav.pull-right
           /%li= link_to "Join us now!", '#', class: "btn btn-small btn"
-          %li= link_to "Home", root_path
-          %li= link_to "Log-in", login_path
-          %li= link_to "Log-out", logout_path
-          %li= link_to "Sign-up", signup_path
+          /%li= link_to "Home", root_path
+          /%li= link_to "Log-in", login_path
+          /%li= link_to "Log-out", logout_path
+          /%li= link_to "Sign-up", signup_path
           /link_to "Sign out", destroy_user_session_path, :method => :delete, class: "btn btn-medium btn-primary"
+          -if user_signed_in?
+            %li= link_to " #{current_user.email} ", '#'
+            %li= link_to "Sign out", destroy_user_session_path, :method => :delete
+          -else
+            %li= link_to "Sign in", new_user_session_path
+            %li= link_to "Sign up", new_user_registration_path

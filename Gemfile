@@ -5,6 +5,10 @@ gem "haml", ">= 2.2.0"
 gem 'rails', '4.1.4'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.11.0'
+gem 'nifty-generators'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
 # Use sqlite3 as the database for Active Record
 gem 'haml-rails', '>= 0.3.4', :group => :development
 group :development, :test do

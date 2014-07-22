@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
-  get 'users/new'
-  root 'static_pages#home'
-  match '/login', to: 'static_pages#login', via: 'get'
-  match '/logout', to: 'static_pages#logout', via: 'get'
-  match '/signup', to: 'users#new', via: 'get'
-  # The priority is based upon order of creation: first created -> highest priority.
+  devise_for :users
+  root to: "static_pages#home"
+  resources :users, :only => [:index, :show]
+  #root 'static_pages#home'
+  #match '/login', to: 'static_pages#login', via: 'get'
+  #match '/logout', to: 'static_pages#logout', via: 'get'
+  #match '/signup', to: 'users#new', via: 'get'
+  get 'dashboard/index'
+  #get '/auth/:provider/callback' => 'sessions#create'
+  #get '/signin' => 'sessions#new', :as => :signin
+  #get '/signout' => 'sessions#destroy', :as => :signout
+  #get '/auth/failure' => 'sessions#failure'
+    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
