@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "static_pages#home"
-  resources :users, :only => [:index, :show]
+  #resources :users, :only => [:index, :show]
+  resources :dashboard
   #root 'static_pages#home'
   #match '/login', to: 'static_pages#login', via: 'get'
   #match '/logout', to: 'static_pages#logout', via: 'get'
